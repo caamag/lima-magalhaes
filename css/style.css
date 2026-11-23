@@ -193,8 +193,11 @@ ul, ol { list-style: none; }
 .about .split { margin-bottom: 40px; }
 
 .courses {
-  --cols: 4;
+  /* 3 colunas: com 5 cursos fica 3 + 2, nunca um card sozinho na linha */
+  --cols: 3;
   --gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -376,8 +379,33 @@ ul, ol { list-style: none; }
   cursor: pointer;
 }
 .modal__close:hover { background: var(--pink-dark); }
-.modal__media { height: 220px; overflow: hidden; background: #222; }
-.modal__media img { width: 100%; height: 100%; object-fit: cover; }
+.modal__media {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  background: #222;
+  display: flex;
+  align-items: flex-end;
+}
+.modal__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.modal__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, .15) 55%, rgba(0, 0, 0, 0) 100%);
+}
+.modal__media .modal__title {
+  position: relative;
+  z-index: 1;
+  padding: 0 40px 26px;
+  color: var(--white);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+}
 .modal__body { padding: 32px 40px 38px; }
 .modal__title {
   font-family: var(--font-head);
@@ -412,6 +440,41 @@ ul, ol { list-style: none; }
   margin: 22px 0 8px;
 }
 .modal__body p { font-size: 14px; color: var(--muted); }
+.modal__desc { display: grid; gap: 10px; }
+.modal__bullets { display: grid; gap: 6px; }
+.modal__bullets li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14px;
+  color: #555;
+}
+.modal__body .modal__notice {
+  margin: 4px 0 6px;
+  padding: 10px 14px;
+  background: var(--light-bg);
+  border-left: 3px solid var(--pink);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #2a2a2a;
+}
+.modal__notice[hidden] { display: none; }
+.modal__note {
+  display: block;
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: var(--light-bg);
+  border-left: 3px solid var(--pink);
+  font-size: 13px;
+  color: #444;
+}
+.modal__bullets li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: .6em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--pink);
+}
 .modal__list {
   counter-reset: item;
   display: grid;
@@ -466,7 +529,6 @@ body.modal-open { overflow: hidden; }
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1024px) {
-  .courses { --cols: 3; }
   .nav { gap: 18px; }
   .header__inner { gap: 24px; }
 }
@@ -506,16 +568,22 @@ body.modal-open { overflow: hidden; }
 
   .split { grid-template-columns: 1fr; gap: 24px; }
   .section-title { font-size: 24px; }
-  .courses { --cols: 2; --gap: 16px; }
+  .courses { --gap: 16px; }
+  .course-card__body { padding: 22px 12px 18px; }
+  .course-card .btn { padding: 10px 16px; }
   .footer__grid { grid-template-columns: 1fr; gap: 30px; }
   .modal__body { padding: 26px 22px 28px; }
+}
+
+@media (max-width: 600px) {
+  .courses { --cols: 1; max-width: 420px; }
 }
 
 @media (max-width: 520px) {
   .header__phone { display: none; }
   .logo__mark { width: 56px; }
   .hero__title { font-size: 30px; }
-  .courses { --cols: 1; }
-  .modal__media { height: 160px; }
+  .modal__media { height: 200px; }
+  .modal__media .modal__title { font-size: 18px; padding: 0 22px 18px; }
   .modal__price-value { font-size: 26px; }
 }

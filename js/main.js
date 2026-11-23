@@ -8,9 +8,8 @@ const WHATSAPP = "5511954060328";
 
 const DEFAULT_PRICE = "R$ 1.500,00";
 const DEFAULT_PAYMENT = [
-  "À vista no PIX ou boleto",
-  "Até 10x de R$ 150,00 sem juros no cartão de crédito",
-  "Entrada + parcelas no boleto (consulte)",
+  "À vista no PIX",
+  "Parcelamento disponível no cartão de crédito: fale com um consultor para conhecer as condições",
 ];
 
 const img = (id) =>
@@ -34,6 +33,46 @@ const COURSES = [
       "Retrato, produto e fotografia de rua",
       "Fluxo de trabalho e tratamento no Lightroom e Photoshop",
       "Construção de portfólio e posicionamento no mercado",
+    ],
+  },
+  {
+    id: "sites",
+    title: "Desenvolvimento<br>de sites com IA",
+    image: img("photo-1460925895917-afdab827c52f"),
+    hours: "24 horas",
+    format: "Presencial",
+    notice:
+      "Próxima turma em breve! As datas ainda serão definidas: confirme com um consultor.",
+    price: "R$ 1.099,00",
+    description: [
+      "Crie sites profissionais do zero com HTML, CSS e JavaScript e aprenda a usar a Inteligência Artificial como sua parceira de desenvolvimento. Você entende como a web funciona por dentro e usa a IA para planejar, escrever, revisar e publicar seus projetos em muito menos tempo.",
+      "O curso une duas coisas que o mercado pede hoje: base técnica sólida para entender e corrigir o que está sendo construído, e domínio das ferramentas de IA que já fazem parte do dia a dia de quem cria para a web. Sem a base, a IA vira uma caixa-preta; sem a IA, você fica para trás.",
+    ],
+    audience: [
+      "Criativos, designers e fotógrafos que querem montar o próprio portfólio",
+      "Empreendedores que querem tirar o site do papel sem depender de terceiros",
+      "Iniciantes que querem começar uma carreira em desenvolvimento web",
+      "Profissionais que já usam IA no trabalho e querem aplicá-la na criação de sites",
+    ],
+    outcomes: [
+      "Construir sites responsivos, acessíveis e rápidos com HTML, CSS e JavaScript",
+      "Usar IA para gerar layouts, textos, imagens e código, sabendo revisar e corrigir o resultado",
+      "Escrever bons prompts para tarefas de desenvolvimento e design",
+      "Publicar seu site com domínio próprio, otimizado para o Google e para buscas feitas por IA",
+      "Apresentar um portfólio publicado, pronto para mostrar a clientes ou recrutadores",
+    ],
+    requirements: [
+      'Notebook com acesso à internet <span class="modal__note">Não precisa ser um notebook potente: um modelo simples, de uso do dia a dia, já é suficiente.</span>',
+    ],
+    content: [
+      "Como a web funciona: domínio, hospedagem e navegadores",
+      "HTML semântico e estrutura de páginas",
+      "CSS: layout, Flexbox, Grid e responsividade",
+      "Tipografia, cores e boas práticas de design web",
+      "JavaScript essencial e interatividade",
+      "Publicação do site e domínio próprio",
+      "Desenvolvimento de sites com IA: prompts, geração e revisão de código",
+      "Projeto final: site portfólio publicado",
     ],
   },
   {
@@ -92,63 +131,6 @@ const COURSES = [
       "Prática em estúdio com desafio criativo",
     ],
   },
-  {
-    id: "sites",
-    title: "Desenvolvimento<br>de sites",
-    image: img("photo-1460925895917-afdab827c52f"),
-    hours: "48 horas",
-    format: "Presencial — laboratório com computadores",
-    description:
-      "Crie sites profissionais do zero com HTML, CSS e JavaScript. Ideal para criativos, fotógrafos e empreendedores que querem montar o próprio portfólio ou começar uma carreira em desenvolvimento web.",
-    content: [
-      "Como a web funciona: domínio, hospedagem e navegadores",
-      "HTML semântico e estrutura de páginas",
-      "CSS: layout, Flexbox, Grid e responsividade",
-      "Tipografia, cores e boas práticas de design web",
-      "JavaScript essencial e interatividade",
-      "SEO, performance e acessibilidade",
-      "Publicação do site e domínio próprio",
-      "Projeto final: site portfólio publicado",
-    ],
-  },
-  {
-    id: "react",
-    title: "React<br>do básico ao avançado",
-    image: img("photo-1633356122544-f134324a6cee"),
-    hours: "60 horas",
-    format: "Presencial — laboratório com computadores",
-    description:
-      "Domine a biblioteca mais usada do mercado para construção de interfaces. Do primeiro componente a aplicações completas, com consumo de APIs, gerenciamento de estado e deploy.",
-    content: [
-      "JavaScript moderno (ES6+) para React",
-      "Componentes, JSX e props",
-      "Estado e ciclo de vida com Hooks",
-      "Formulários, eventos e listas",
-      "Rotas com React Router",
-      "Consumo de APIs e requisições assíncronas",
-      "Gerenciamento de estado global (Context e bibliotecas)",
-      "Testes, boas práticas e performance",
-      "Projeto final com deploy",
-    ],
-  },
-  {
-    id: "ia",
-    title: "Utilização de IA<br>— curso básico",
-    image: img("photo-1677442136019-21780ecad995"),
-    hours: "20 horas",
-    format: "Presencial — laboratório com computadores",
-    description:
-      "Aprenda a usar ferramentas de inteligência artificial no dia a dia, no trabalho e em processos criativos. Um curso prático, sem necessidade de conhecimento técnico prévio.",
-    content: [
-      "O que é IA e como funcionam os modelos de linguagem",
-      "Principais ferramentas do mercado e quando usar cada uma",
-      "Escrevendo bons prompts: técnicas e exemplos",
-      "IA para textos, pesquisa e produtividade",
-      "IA para criação e edição de imagens",
-      "Automação de tarefas do dia a dia",
-      "Ética, direitos autorais e uso responsável",
-    ],
-  },
 ];
 
 /* ---------- Render dos cards ---------- */
@@ -162,9 +144,9 @@ grid.innerHTML = COURSES.map(
     </div>
     <div class="course-card__body">
       <h3 class="course-card__title">${c.title}</h3>
-      <button type="button" class="btn" data-course="${c.id}">Próximas turmas</button>
+      <button type="button" class="btn" data-course="${c.id}">Saiba mais</button>
     </div>
-  </article>`
+  </article>`,
 ).join("");
 
 /* ---------- Modal ---------- */
@@ -173,7 +155,10 @@ const $ = (id) => document.getElementById(id);
 let lastFocus = null;
 
 function plain(html) {
-  return html.replace(/<br\s*\/?>/gi, " ").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function openCourse(id) {
@@ -186,14 +171,26 @@ function openCourse(id) {
   $("modal-img").alt = name;
   $("modal-hours").textContent = c.hours;
   $("modal-format").textContent = c.format;
-  $("modal-desc").textContent = c.description;
+  $("modal-notice").hidden = !c.notice;
+  $("modal-notice").textContent = c.notice || "";
+  $("modal-desc").innerHTML = [].concat(c.description)
+    .map((p) => `<p>${p}</p>`)
+    .join("");
+  [
+    ["audience", c.audience],
+    ["outcomes", c.outcomes],
+    ["requirements", c.requirements],
+  ].forEach(([key, items]) => {
+    $(`modal-${key}-wrap`).hidden = !items;
+    $(`modal-${key}`).innerHTML = (items || []).map((i) => `<li>${i}</li>`).join("");
+  });
   $("modal-content").innerHTML = c.content.map((i) => `<li>${i}</li>`).join("");
   $("modal-price").textContent = c.price || DEFAULT_PRICE;
   $("modal-payment").innerHTML = (c.payment || DEFAULT_PAYMENT)
     .map((p) => `<li>${p}</li>`)
     .join("");
   $("modal-cta").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
-    `Olá! Tenho interesse nas próximas turmas do curso "${name}".`
+    `Olá! Tenho interesse nas próximas turmas do curso "${name}".`,
   )}`;
 
   lastFocus = document.activeElement;
@@ -242,12 +239,18 @@ toggle.addEventListener("click", () => {
   const open = nav.classList.toggle("is-open");
   toggle.setAttribute("aria-expanded", String(open));
 });
-nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+nav
+  .querySelectorAll("a")
+  .forEach((a) => a.addEventListener("click", closeMenu));
 
 /* ---------- Fallback de imagens ---------- */
 document.querySelectorAll("img").forEach((im) => {
   im.addEventListener("error", () => {
     im.style.visibility = "hidden";
+  });
+  // a imagem do modal troca de src: volta a aparecer quando uma nova carrega
+  im.addEventListener("load", () => {
+    im.style.visibility = "";
   });
 });
 

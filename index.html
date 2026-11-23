@@ -46,7 +46,7 @@
     <div class="hero__bg"></div>
     <div class="container hero__content">
       <h1 class="hero__title">Criatividade<br>que move o mundo</h1>
-      <a href="#cursos" class="btn">Próximas turmas</a>
+      <a href="#cursos" class="btn">Saiba mais</a>
     </div>
     <div class="hero__band"></div>
   </section>
@@ -134,15 +134,30 @@
     <div class="modal__overlay" data-close-modal></div>
     <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <button class="modal__close" aria-label="Fechar" data-close-modal>&times;</button>
-      <div class="modal__media"><img id="modal-img" src="" alt=""></div>
-      <div class="modal__body">
+      <div class="modal__media">
+        <img id="modal-img" alt="">
         <h3 class="modal__title" id="modal-title"></h3>
+      </div>
+      <div class="modal__body">
         <div class="modal__meta">
           <span><strong>Carga horária:</strong> <span id="modal-hours"></span></span>
           <span><strong>Formato:</strong> <span id="modal-format"></span></span>
         </div>
-        <h4>Descrição</h4>
-        <p id="modal-desc"></p>
+        <p id="modal-notice" class="modal__notice" hidden></p>
+        <h4>Sobre o curso</h4>
+        <div id="modal-desc" class="modal__desc"></div>
+        <div id="modal-audience-wrap" hidden>
+          <h4>Para quem é</h4>
+          <ul id="modal-audience" class="modal__bullets"></ul>
+        </div>
+        <div id="modal-outcomes-wrap" hidden>
+          <h4>Ao final do curso, você será capaz de</h4>
+          <ul id="modal-outcomes" class="modal__bullets"></ul>
+        </div>
+        <div id="modal-requirements-wrap" hidden>
+          <h4>Requisitos</h4>
+          <ul id="modal-requirements" class="modal__bullets"></ul>
+        </div>
         <h4>Conteúdo programático</h4>
         <ol id="modal-content" class="modal__list"></ol>
         <div class="modal__price">
