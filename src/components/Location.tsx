@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
 import { ADDRESS, MAPS_DIRECTIONS, MAPS_EMBED, MAPS_LINK } from "../config";
 
-/** Seção "Onde estamos" com o mapa do Google Maps. */
 export default function Location() {
   return (
     <section id="localizacao" className="scroll-mt-[76px] bg-light py-[70px] md:py-[90px]">

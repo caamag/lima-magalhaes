@@ -1,26 +1,16 @@
-/* ==========================================================
-   Lima & Magalhães — Cursos
-   Para editar informações de um curso, altere o objeto
-   correspondente no array COURSES abaixo.
-   Campos de texto aceitam HTML simples (<strong>, <br>, etc).
-   ========================================================== */
-
 export type Lesson = {
   title: string;
   theme?: string;
   topics?: string[];
   practice?: string[];
-  /** Duração da atividade prática, exibida ao lado do título (ex.: "1h36"). */
   practiceDuration?: string;
   delivery?: string;
-  /** Destaque exibido na aula (ex.: "Saída fotográfica 01"). */
   badge?: string;
 };
 
 export type ExtraSection = {
   title: string;
   intro?: string;
-  /** Blocos de destaque (valor grande + legenda), exibidos lado a lado. */
   stats?: { value: string; label: string }[];
   ordered?: boolean;
   items?: string[];
@@ -30,63 +20,45 @@ export type ExtraSection = {
 export type Course = {
   id: string;
   title: string;
-  /** Frase exibida abaixo do título no modal/página. */
   subtitle?: string;
   image: string;
   hours: string;
-  /** Ex.: "8 aulas de 3h45 cada". */
   duration?: string;
   format?: string;
   methodology?: string;
   notice?: string;
-  /** Frase de destaque exibida após "Sobre o curso" (title em fonte grande + texto opcional). */
   highlight?: { title: string; text?: string };
-  /** Preço à vista em reais (ex.: 1499). Padrão: DEFAULT_PRICE. */
   price?: number;
   payment?: string[];
   description: string | string[];
   audience?: string[];
   outcomes?: string[];
   requirements?: string[];
-  /** Título da lista de aulas. Padrão: "Conteúdo programático". */
   contentTitle?: string;
   content: (string | Lesson)[];
   sections?: ExtraSection[];
-  /** Se definido, o curso ganha uma página própria em /cursos/<id> (em vez do modal). */
   page?: CoursePageInfo;
 };
 
 export type CoursePageInfo = {
-  /** Título grande do banner (cada item é uma linha). */
   heroTitle: string[];
-  /** Imagem do banner. Se omitida, usa a imagem do card em alta resolução. */
   heroImage?: string;
-  /** Escurece o lado esquerdo do banner para dar contraste ao título. Padrão: true. */
   heroOverlay?: boolean;
-  /** Ponto focal do banner quando a imagem é cortada (telas estreitas). Ex.: "25% center". */
   heroPosition?: string;
-  /** Cor do título do banner. */
   heroColor?: string;
-  /** Cor de destaque do header nesta página (logo, telefone, menu). Padrão: rosa. */
   headerAccent?: string;
-  /** Título da seção de apresentação (cada item é uma linha). */
   introTitle: string[];
-  /** Texto de apresentação (aceita HTML simples). */
   intro: string;
 };
 
-/** Preço à vista padrão (em reais). Cada curso pode sobrescrever com `price`. */
 export const DEFAULT_PRICE = 1499;
 
-/* Parcelamento no cartão. O acréscimo é embutido no valor da parcela
-   e NÃO é exibido no site: só aparece "12x de R$ X". */
 export const INSTALLMENTS = 12;
-const INSTALLMENT_SURCHARGE = 0.2211; // 22,11% sobre o valor à vista
+const INSTALLMENT_SURCHARGE = 0.2211;
 
 export const brl = (value: number) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-/** Valor de cada parcela, arredondado para centavos. */
 export const installmentValue = (price: number) =>
   Math.round(((price * (1 + INSTALLMENT_SURCHARGE)) / INSTALLMENTS) * 100) / 100;
 
@@ -539,7 +511,6 @@ export const COURSES: Course[] = [
           "Projeto final de direção de arte apresentado e defendido pelo aluno.",
       },
     ],
-    // Seções extras exibidas depois do conteúdo programático
     sections: [
       {
         title: "Projeto final — desafio criativo",
@@ -868,7 +839,6 @@ export const COURSES: Course[] = [
 
 export const findCourse = (id?: string | null) => COURSES.find((c) => c.id === id);
 
-/** Link do "Saiba mais": página própria se o curso tiver, senão abre o modal. */
 export const courseLink = (c: Course) => (c.page ? `/cursos/${c.id}` : `?curso=${c.id}`);
 
 export const plainTitle = (html: string) =>

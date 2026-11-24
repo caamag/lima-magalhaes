@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import { findCourse, plainTitle } from "../data/courses";
 import CourseDetails from "./CourseDetails";
 
-/** Modal de curso, aberto via ?curso=<id> na URL. */
 export default function CourseModal() {
   const [params, setParams] = useSearchParams();
   const course = findCourse(params.get("curso"));

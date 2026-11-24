@@ -3,7 +3,6 @@ import { whatsappLink } from "../config";
 
 type Props = { variant?: "white" | "cyan" };
 
-/** Seção da bolsa social (branca na home, ciano nas páginas de curso). */
 export default function Scholarship({ variant = "white" }: Props) {
   const cyan = variant === "cyan";
   return (

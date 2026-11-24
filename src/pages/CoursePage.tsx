@@ -35,12 +35,10 @@ export default function CoursePage() {
     `Olá! Tenho interesse nas próximas turmas do curso "${name}".`,
   );
   const heroImage = page.heroImage ?? course.image.replace("w=900", "w=1920");
-  // Palavras longas (ex.: "Empreendedorismo") precisam de fonte menor no celular para caber na tela
   const longTitle = Math.max(...page.heroTitle.map((l) => l.length)) > 10;
 
   return (
     <>
-      {/* BANNER */}
       <section
         className="hero-bg relative h-[420px] overflow-hidden bg-[#1b1b1b] md:h-[540px] lg:flex lg:h-[600px] lg:items-center lg:pb-[70px]"
         style={{
@@ -70,7 +68,6 @@ export default function CoursePage() {
         <div className="absolute inset-x-0 bottom-0 z-[1] h-12 bg-[rgba(2,28,22,.8)] md:h-[70px]" />
       </section>
 
-      {/* APRESENTAÇÃO */}
       <section className="bg-light py-[70px] md:py-[80px]">
         <div className="container-site grid items-center gap-6 md:grid-cols-[5fr_7fr] md:gap-10">
           <h2 className="section-title" data-reveal="left">{lines(page.introTitle)}</h2>
@@ -83,7 +80,6 @@ export default function CoursePage() {
         </div>
       </section>
 
-      {/* CONTEÚDO COMPLETO DO CURSO */}
       <section
         id="conteudo"
         className="scroll-mt-[76px] bg-white py-[70px] md:py-[90px]"
@@ -102,7 +98,6 @@ export default function CoursePage() {
 
       <Scholarship variant="cyan" />
 
-      {/* FAIXA */}
       <section className="bg-black py-[30px] text-white">
         <div className="container-site">
           <p data-reveal className="font-head text-[13px] font-semibold uppercase tracking-[.18em] md:text-[15px]">

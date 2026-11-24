@@ -65,7 +65,6 @@ function LessonItem({ lesson }: { lesson: Lesson }) {
   );
 }
 
-/** Conteúdo completo de um curso (usado no modal e, futuramente, nas páginas de curso). */
 export default function CourseDetails({ course }: { course: Course }) {
   const name = plainTitle(course.title);
   const price = course.price ?? DEFAULT_PRICE;

@@ -20,7 +20,6 @@
 
 @layer base {
   html { scroll-behavior: smooth; }
-  /* evita rolagem lateral enquanto elementos animam vindo das laterais (clip não quebra o header sticky) */
   body { overflow-x: clip; }
   body {
     @apply font-body text-text bg-white leading-relaxed antialiased;
@@ -34,9 +33,6 @@
     @apply inline-block cursor-pointer border-0 bg-pink px-7 py-[11px] font-head text-[13px] font-medium uppercase tracking-[.02em] text-white transition hover:-translate-y-px hover:bg-pink-dark;
   }
 
-  /* Fundo dos banners: imagem fixa na tela (background-attachment: fixed).
-     Em celulares/tablets (sem mouse) o fixed é ignorado ou fica com zoom errado
-     (ex.: iOS Safari), então lá a imagem rola normalmente. */
   .hero-bg {
     background-size: cover;
     background-repeat: no-repeat;
@@ -46,7 +42,6 @@
     .hero-bg { background-attachment: scroll; }
   }
 
-  /* Título grande dos banners (home e páginas de curso) */
   .hero-title {
     @apply mb-10 font-head text-[30px] font-bold uppercase leading-[0.95] sm:text-[38px] md:text-[56px];
   }
@@ -60,7 +55,6 @@
     @apply mt-1.5 block h-[3px] w-9 bg-pink;
   }
 
-  /* Listas usadas no conteúdo dos cursos */
   .bullets { @apply grid gap-1.5; }
   .bullets > li { @apply relative pl-[18px] text-sm text-[#555]; }
   .bullets > li::before {
@@ -88,10 +82,6 @@
   .lesson[open] summary::after { content: "–"; }
 }
 
-/* ==========================================================
-   Animações
-   ========================================================== */
-
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(28px); }
   to { opacity: 1; transform: none; }
@@ -113,18 +103,14 @@
   to { opacity: 1; }
 }
 
-/* Transição entre páginas (links internos) */
 .page-enter { animation: page-in .55s cubic-bezier(.2, .7, .2, 1) both; }
 .page-leave { animation: page-out .25s ease-in both; pointer-events: none; }
 
-/* Chegada: título e botão do banner entram em sequência */
 .hero-anim > * { animation: fade-up .9s cubic-bezier(.2, .7, .2, 1) both; }
 .hero-anim > *:nth-child(1) { animation-delay: .15s; }
 .hero-anim > *:nth-child(2) { animation-delay: .35s; }
 .hero-anim > *:nth-child(3) { animation-delay: .5s; }
 
-/* Scroll: elementos com data-reveal aparecem ao entrar na tela.
-   Use style={{ "--reveal-delay": "150ms" }} para escalonar. */
 [data-reveal] {
   opacity: 0;
   transform: translateY(32px);
@@ -140,8 +126,6 @@
 .modal-overlay-anim { animation: fade-in .25s ease both; }
 .modal-anim { animation: modal-in .35s cubic-bezier(.2, .7, .2, 1) both; }
 
-/* Acessibilidade: quem pediu menos movimento (ex.: "Efeitos de animação" desligado no Windows)
-   continua vendo as transições, mas só como fade, sem deslocamento. */
 @keyframes fade-out {
   from { opacity: 1; }
   to { opacity: 0; }

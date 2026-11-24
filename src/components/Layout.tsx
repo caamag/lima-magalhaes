@@ -6,7 +6,6 @@ import CourseModal from "./CourseModal";
 
 const LEAVE_MS = 250;
 
-/** Rola até a âncora (#sobre, #cursos...) ou para o topo ao trocar de página. */
 function useScrollToHash() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -18,11 +17,6 @@ function useScrollToHash() {
   }, [pathname, hash]);
 }
 
-/**
- * Transição entre páginas: intercepta cliques em links internos que levam a outra página,
- * anima a saída do conteúdo atual e só então navega (a nova página entra com .page-enter).
- * Links para a mesma página (#âncoras, ?curso=) seguem normalmente, sem transição.
- */
 function usePageTransition() {
   const navigate = useNavigate();
   const [leaving, setLeaving] = useState(false);
@@ -37,7 +31,6 @@ function usePageTransition() {
       const url = new URL(link.href, window.location.href);
       if (url.origin !== window.location.origin || url.pathname === window.location.pathname) return;
 
-      // Captura antes do <Link>: o preventDefault faz o Link não navegar sozinho
       e.preventDefault();
       const to = url.pathname + url.search + url.hash;
       setLeaving(true);
@@ -58,7 +51,6 @@ function usePageTransition() {
   return leaving;
 }
 
-/** Revela os elementos com [data-reveal] quando eles entram na tela. */
 function useScrollReveal() {
   const { pathname } = useLocation();
   useEffect(() => {

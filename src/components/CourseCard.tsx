@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import { courseLink, type Course } from "../data/courses";
 import Html from "./Html";
 
-/** `index` escalona a animação de entrada dos cards (um após o outro, por linha). */
 export default function CourseCard({ course, index = 0 }: { course: Course; index?: number }) {
   return (
-    // O wrapper faz a animação de scroll; o card mantém sua própria transição de hover
     <div
       data-reveal
       style={{ "--reveal-delay": `${(index % 3) * 120}ms` } as CSSProperties}

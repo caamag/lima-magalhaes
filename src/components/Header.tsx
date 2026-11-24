@@ -3,7 +3,6 @@ import { Link, useMatch } from "react-router-dom";
 import { PHONE_LABEL, WHATSAPP } from "../config";
 import { findCourse } from "../data/courses";
 
-/** Cor de destaque do header: definida pela página de curso atual, senão rosa. */
 function useHeaderAccent() {
   const match = useMatch("/cursos/:id");
   return findCourse(match?.params.id)?.page?.headerAccent ?? "var(--color-pink)";
@@ -26,7 +25,6 @@ export default function Header() {
     <header id="topo" className="sticky top-0 z-50 bg-dark" style={{ "--accent": accent } as CSSProperties}>
       <div className="container-site flex h-[76px] items-center gap-6 lg:gap-10">
         <Link to="/" onClick={close} aria-label="Lima & Magalhães - início" className="flex items-center">
-          {/* Logo em máscara: o PNG define a forma e a cor vem de --accent */}
           <span
             role="img"
             aria-label="Lima & Magalhães — Escola de Criatividade"

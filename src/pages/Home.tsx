@@ -15,7 +15,6 @@ const HERO_BG = [
 export default function Home() {
   return (
     <>
-      {/* HERO */}
       <section
         className="hero-bg relative h-[480px] overflow-hidden bg-[#0a2a3a] text-white md:h-[540px] lg:flex lg:h-[600px] lg:items-center lg:pb-20"
         style={{ backgroundImage: HERO_BG, backgroundPosition: "85% center" }}
@@ -33,7 +32,6 @@ export default function Home() {
         <div className="absolute inset-x-0 bottom-0 z-[1] h-20 bg-[rgba(2,28,22,.85)]" />
       </section>
 
-      {/* SOBRE + CURSOS */}
       <section id="sobre" className="scroll-mt-[76px] bg-light pt-[75px] pb-[90px]">
         <div className={`${split} mb-10`}>
           <h2 className="section-title" data-reveal="left">
@@ -58,7 +56,6 @@ export default function Home() {
         </div>
 
         <div id="cursos" className="container-site scroll-mt-[96px]">
-          {/* 3 colunas: com 5 cursos fica 3 + 2, nunca um card sozinho na linha */}
           <div className="mx-auto flex max-w-[420px] flex-wrap justify-center gap-[var(--gap)] [--gap:16px] min-[601px]:max-w-[1000px] md:[--gap:24px]">
             {COURSES.map((c, i) => (
               <CourseCard key={c.id} course={c} index={i} />
@@ -71,7 +68,6 @@ export default function Home() {
 
       <Location />
 
-      {/* FAIXA */}
       <section id="galeria" className="border-b border-[#444] bg-black py-[30px] text-white">
         <div className="container-site">
           <p className="font-serif text-[15px] uppercase tracking-[.08em]" data-reveal>
