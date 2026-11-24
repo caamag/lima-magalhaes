@@ -19,8 +19,8 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { overflow-x: clip; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { overflow-x: hidden; overflow-x: clip; max-width: 100%; }
   body {
     @apply font-body text-text bg-white leading-relaxed antialiased;
   }
@@ -119,8 +119,10 @@
     transform .8s cubic-bezier(.2, .7, .2, 1);
   transition-delay: var(--reveal-delay, 0ms);
 }
-[data-reveal="left"] { transform: translateX(-36px); }
-[data-reveal="right"] { transform: translateX(36px); }
+@media (min-width: 768px) {
+  [data-reveal="left"] { transform: translateX(-36px); }
+  [data-reveal="right"] { transform: translateX(36px); }
+}
 [data-reveal].is-visible { opacity: 1; transform: none; }
 
 .modal-overlay-anim { animation: fade-in .25s ease both; }
