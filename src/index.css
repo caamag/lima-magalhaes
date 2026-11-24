@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pink: #ff1f9a;
+  --color-pink-dark: #e0107f;
+  --color-dark: #021611;
+  --color-ink: #2a2a2a;
+  --color-text: #2b2b2b;
+  --color-muted: #7a7a7a;
+  --color-light: #f5f5f5;
+  --color-yellow: #ffe600;
+  --color-cyan: #00bff3;
+  --color-footer: #2a2a2a;
+  --color-footer-line: #3a3a3a;
+
+  --font-head: "Poppins", sans-serif;
+  --font-body: "Lato", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  /* evita rolagem lateral enquanto elementos animam vindo das laterais (clip não quebra o header sticky) */
+  body { overflow-x: clip; }
+  body {
+    @apply font-body text-text bg-white leading-relaxed antialiased;
+  }
+}
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-[1140px] px-5 md:px-10; }
+
+  .btn {
+    @apply inline-block cursor-pointer border-0 bg-pink px-7 py-[11px] font-head text-[13px] font-medium uppercase tracking-[.02em] text-white transition hover:-translate-y-px hover:bg-pink-dark;
+  }
+
+  /* Fundo dos banners: imagem fixa na tela (background-attachment: fixed).
+     Em celulares/tablets (sem mouse) o fixed é ignorado ou fica com zoom errado
+     (ex.: iOS Safari), então lá a imagem rola normalmente. */
+  .hero-bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @media (hover: none) {
+    .hero-bg { background-attachment: scroll; }
+  }
+
+  /* Título grande dos banners (home e páginas de curso) */
+  .hero-title {
+    @apply mb-10 font-head text-[30px] font-bold uppercase leading-[0.95] sm:text-[38px] md:text-[56px];
+  }
+
+  .section-title {
+    @apply font-head text-2xl font-semibold uppercase leading-[1.45] text-ink md:text-[30px];
+  }
+  .section-title::after,
+  .title-bar::after {
+    content: "";
+    @apply mt-1.5 block h-[3px] w-9 bg-pink;
+  }
+
+  /* Listas usadas no conteúdo dos cursos */
+  .bullets { @apply grid gap-1.5; }
+  .bullets > li { @apply relative pl-[18px] text-sm text-[#555]; }
+  .bullets > li::before {
+    content: "";
+    @apply absolute left-0.5 top-[.6em] size-1.5 rounded-full bg-pink;
+  }
+
+  .numbered { counter-reset: item; @apply grid gap-1.5; }
+  .numbered > li { counter-increment: item; @apply relative pl-8 text-sm text-[#555]; }
+  .numbered > li::before {
+    content: counter(item, decimal-leading-zero);
+    @apply absolute left-0 top-0 font-head text-xs font-semibold leading-[1.85] text-pink;
+  }
+
+  .note {
+    @apply mt-1.5 block border-l-[3px] border-pink bg-light px-3 py-2 text-[13px] text-[#444];
+  }
+
+  .lesson summary { list-style: none; }
+  .lesson summary::-webkit-details-marker { display: none; }
+  .lesson summary::after {
+    content: "+";
+    @apply absolute right-1 top-0 font-head text-lg font-semibold leading-[1.2] text-pink;
+  }
+  .lesson[open] summary::after { content: "–"; }
+}
+
+/* ==========================================================
+   Animações
+   ========================================================== */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes page-out {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(24px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Transição entre páginas (links internos) */
+.page-enter { animation: page-in .55s cubic-bezier(.2, .7, .2, 1) both; }
+.page-leave { animation: page-out .25s ease-in both; pointer-events: none; }
+
+/* Chegada: título e botão do banner entram em sequência */
+.hero-anim > * { animation: fade-up .9s cubic-bezier(.2, .7, .2, 1) both; }
+.hero-anim > *:nth-child(1) { animation-delay: .15s; }
+.hero-anim > *:nth-child(2) { animation-delay: .35s; }
+.hero-anim > *:nth-child(3) { animation-delay: .5s; }
+
+/* Scroll: elementos com data-reveal aparecem ao entrar na tela.
+   Use style={{ "--reveal-delay": "150ms" }} para escalonar. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2, .7, .2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal="left"] { transform: translateX(-36px); }
+[data-reveal="right"] { transform: translateX(36px); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+.modal-overlay-anim { animation: fade-in .25s ease both; }
+.modal-anim { animation: modal-in .35s cubic-bezier(.2, .7, .2, 1) both; }
+
+/* Acessibilidade: quem pediu menos movimento (ex.: "Efeitos de animação" desligado no Windows)
+   continua vendo as transições, mas só como fade, sem deslocamento. */
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-enter, .hero-anim > *, .modal-anim { animation-name: fade-in; }
+  .page-leave { animation-name: fade-out; }
+  [data-reveal], [data-reveal="left"], [data-reveal="right"] { transform: none; transition: opacity .8s ease; transition-delay: var(--reveal-delay, 0ms); }
+}
