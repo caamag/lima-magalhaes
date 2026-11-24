@@ -281,7 +281,7 @@ export const COURSES: Course[] = [
   },
   {
     id: "sites",
-    title: "Desenvolvimento<br>de sites com IA",
+    title: "Desenvolvimento<br>de sites",
     image: img("photo-1460925895917-afdab827c52f"),
     hours: "24 horas",
     format: "Presencial",
@@ -289,7 +289,7 @@ export const COURSES: Course[] = [
       "Próxima turma em breve! As datas ainda serão definidas: confirme com um consultor.",
     price: 1099,
     page: {
-      heroTitle: ["Sites", "com IA"],
+      heroTitle: ["Desenvolvimento", "de sites"],
       heroImage: "/img/banner-sites.webp",
       heroColor: "#ff1f9a",
       introTitle: ["Da ideia", "ao site no ar"],
