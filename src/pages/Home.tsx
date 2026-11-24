@@ -47,38 +47,22 @@ export default function Home() {
               Nossa escola nasce do propósito de transformar a maneira como as pessoas enxergam e produzem imagens.
             </p>
             <p>
-              Idealizada por William Magalhães e Janayna Lima, a Lima &amp; Magalhães Escola de Criatividade une duas
-              trajetórias, diferentes perspectivas e uma paixão em comum: desenvolver pessoas por meio da criatividade, do
-              conhecimento e da expressão visual.
+              Idealizada por William Magalhães e Janayna Lima, a escola une duas trajetórias e uma paixão em comum:
+              desenvolver pessoas por meio da criatividade, do conhecimento e da expressão visual.
             </p>
             <p>
-              <strong>William Magalhães</strong> é fotógrafo, publicitário e diretor de arte, com uma trajetória marcada
-              pela criação de campanhas para grandes marcas e projetos reconhecidos internacionalmente. Seu trabalho reúne
-              experiência, repertório visual e uma visão artística construída ao longo de anos de atuação no mercado,
-              incluindo reconhecimento no Fearless e participação na direção de fotografia de uma campanha premiada em
-              Cannes.
+              <strong>William</strong> é fotógrafo, publicitário e diretor de arte, com campanhas para grandes marcas,
+              reconhecimento no Fearless e direção de fotografia em uma campanha premiada em Cannes.{" "}
+              <strong>Janayna</strong> é advogada e empreendedora, com experiência comercial e de relacionamento, e
+              acredita no conhecimento como ferramenta de transformação.
             </p>
             <p>
-              <strong>Janayna Lima</strong> é advogada, empreendedora e profissional com experiência nas áreas comercial e
-              de relacionamento. Sua trajetória é marcada pela capacidade de conectar pessoas, compreender comportamentos e
-              transformar ideias em projetos. Com olhar atento aos detalhes, visão estratégica e paixão pelo
-              desenvolvimento humano, acredita no poder do conhecimento como ferramenta de transformação e novas
-              oportunidades.
+              Também atuamos com <strong>tecnologia e desenvolvimento de software</strong>: criamos sites, sistemas e
+              soluções digitais no dia a dia e levamos essa prática de mercado para os cursos da área.
             </p>
             <p>
-              Além da imagem, a escola também atua com <strong>tecnologia e desenvolvimento de software</strong>.
-              Desenvolvemos sites, sistemas e soluções digitais no dia a dia, e é essa experiência prática de mercado que
-              levamos para a sala de aula nos cursos da área, unindo programação, inteligência artificial e criatividade
-              para formar profissionais preparados para a nova economia digital.
-            </p>
-            <p>
-              Juntos, conectamos fotografia, publicidade, estratégia, audiovisual e tecnologia para oferecer uma formação
-              que vai além da técnica. Unimos repertório visual, criatividade e prática profissional para formar novos
-              olhares e preparar pessoas para enxergar a imagem como expressão, conhecimento e oportunidade.
-            </p>
-            <p>
-              Em Mogi das Cruzes, queremos construir um espaço onde a criatividade encontra conhecimento e onde novas
-              possibilidades começam a ganhar forma.
+              Juntos, conectamos fotografia, publicidade, estratégia, audiovisual e tecnologia em uma formação que vai
+              além da técnica, construindo em Mogi das Cruzes um espaço onde a criatividade encontra o conhecimento.
             </p>
           </div>
         </div>
