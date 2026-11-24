@@ -5,7 +5,6 @@ import Scholarship from "../components/Scholarship";
 import Location from "../components/Location";
 
 const splitText = "text-[13.5px] leading-relaxed text-muted [&_strong]:text-[#444]";
-const split = "container-site grid items-center gap-6 md:grid-cols-[5fr_7fr] md:gap-10";
 
 const HERO_BG = [
   "linear-gradient(90deg, rgba(4,14,28,.55) 0%, rgba(4,14,28,.2) 45%, rgba(4,14,28,0) 70%)",
@@ -33,24 +32,53 @@ export default function Home() {
       </section>
 
       <section id="sobre" className="scroll-mt-[76px] bg-light pt-[75px] pb-[90px]">
-        <div className={`${split} mb-10`}>
-          <h2 className="section-title" data-reveal="left">
+        <div className="container-site mb-14 grid gap-6 md:grid-cols-[5fr_7fr] md:items-start md:gap-10">
+          <h2 className="section-title md:sticky md:top-[110px]" data-reveal="left">
             De criativo
             <br />
             para criativos
           </h2>
-          <div className={splitText} data-reveal style={{ "--reveal-delay": "150ms" } as CSSProperties}>
-            <p>
+          <div
+            className={`${splitText} grid gap-4 [&_strong]:font-head [&_strong]:font-semibold`}
+            data-reveal
+            style={{ "--reveal-delay": "150ms" } as CSSProperties}
+          >
+            <p className="text-[15px] leading-relaxed text-ink">
               Nossa escola nasce do propósito de transformar a maneira como as pessoas enxergam e produzem imagens.
-              Idealizada por William Magalhães, fotógrafo, publicitário e diretor de arte, reúne experiência em campanhas
-              para grandes marcas, projetos premiados internacionalmente, incluindo reconhecimento no Fearless e
-              participação na direção de fotografia de campanha premiada em Cannes, e de Janayna, Advogada, empreendedora,
-              apaixonada, com olhar minucioso para pessoas e comportamentos.
             </p>
             <p>
-              Com uma trajetória que conecta fotografia, publicidade e audiovisual, oferecemos uma formação que vai além
-              da técnica, unindo repertório visual, criatividade e prática profissional. Em Mogi das Cruzes, formamos
-              novos olhares e preparamos pessoas para enxergar a fotografia como expressão, conhecimento e oportunidade.
+              Idealizada por William Magalhães e Janayna Lima, a Lima &amp; Magalhães Escola de Criatividade une duas
+              trajetórias, diferentes perspectivas e uma paixão em comum: desenvolver pessoas por meio da criatividade, do
+              conhecimento e da expressão visual.
+            </p>
+            <p>
+              <strong>William Magalhães</strong> é fotógrafo, publicitário e diretor de arte, com uma trajetória marcada
+              pela criação de campanhas para grandes marcas e projetos reconhecidos internacionalmente. Seu trabalho reúne
+              experiência, repertório visual e uma visão artística construída ao longo de anos de atuação no mercado,
+              incluindo reconhecimento no Fearless e participação na direção de fotografia de uma campanha premiada em
+              Cannes.
+            </p>
+            <p>
+              <strong>Janayna Lima</strong> é advogada, empreendedora e profissional com experiência nas áreas comercial e
+              de relacionamento. Sua trajetória é marcada pela capacidade de conectar pessoas, compreender comportamentos e
+              transformar ideias em projetos. Com olhar atento aos detalhes, visão estratégica e paixão pelo
+              desenvolvimento humano, acredita no poder do conhecimento como ferramenta de transformação e novas
+              oportunidades.
+            </p>
+            <p>
+              Além da imagem, a escola também atua com <strong>tecnologia e desenvolvimento de software</strong>.
+              Desenvolvemos sites, sistemas e soluções digitais no dia a dia, e é essa experiência prática de mercado que
+              levamos para a sala de aula nos cursos da área, unindo programação, inteligência artificial e criatividade
+              para formar profissionais preparados para a nova economia digital.
+            </p>
+            <p>
+              Juntos, conectamos fotografia, publicidade, estratégia, audiovisual e tecnologia para oferecer uma formação
+              que vai além da técnica. Unimos repertório visual, criatividade e prática profissional para formar novos
+              olhares e preparar pessoas para enxergar a imagem como expressão, conhecimento e oportunidade.
+            </p>
+            <p>
+              Em Mogi das Cruzes, queremos construir um espaço onde a criatividade encontra conhecimento e onde novas
+              possibilidades começam a ganhar forma.
             </p>
           </div>
         </div>
